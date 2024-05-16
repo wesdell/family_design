@@ -1,0 +1,8 @@
+@startuml
+class Person {
+-name : String
+-mother : Person
+-father : Person
+-children[] : Person
+}
+@enduml
