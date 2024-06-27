@@ -1,7 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Person {
   private final String name;
   private Person partner;
-  private Person[] children;
+  private final ArrayList<Person> children = new ArrayList<>();
 
   public Person(String name) {
     this.name = name;
@@ -20,10 +23,10 @@ public class Person {
   }
 
   public void setChild(Person... children) {
-    if (this.children == children) {
+    if (this.children.containsAll(List.of(children))) {
       return;
     }
-    this.children = children;
+    this.children.addAll(List.of(children));
     if (this.partner != null) {
       this.partner.setChild(children);
     }
